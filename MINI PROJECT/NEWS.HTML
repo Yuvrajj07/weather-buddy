@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather News</title>
+    <style>
+        #NEWS {
+            border-style: solid;
+            width: 1000px;
+            height: 700px;
+            border-color: black;
+            padding: 20px;
+            font-size: large;
+            font-weight: 300;
+        }
+        #p1 {
+            margin: 20px;
+            padding: 20px;
+            font-size: large;
+        }
+    </style>
+     <script>
+        // URL of the API you want to fetch data from
+        const apiUrl = 'https://api.example.com/data';
+
+        // Function to fetch data from the API
+        async function fetchData() {
+            try {
+                const response = await fetch(apiUrl);
+                const data = await response.json();
+
+                // Manipulate the received data here
+                const dataContainer = document.getElementById('dataContainer');
+
+                // Display the data in the HTML
+                dataContainer.innerHTML = JSON.stringify(data);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+
+        // Call the fetchData function when the page loads
+        window.onload = fetchData;
+    </script>
+</head>
+<body>
+    <h1>WEATHER NEWS</h1>
+    <section id="NEWS">
+        <p id="p1">TODAY'S NEWS:</p>
+        <ul id="newsList"></ul>
+    </section>
+
+   
+</body>
+</html>

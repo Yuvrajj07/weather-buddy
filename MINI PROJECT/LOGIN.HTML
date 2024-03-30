@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="LOGIN1.CSS">
+    <style>
+        /* Your existing styles here */
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url(pexels-pixabay-164024.jpg); /* Add the background image URL here */
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #1f1f1f; /* Set a background color in case the image doesn't load */
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden; /* Hide overflowing snowflakes */
+        }
+
+       
+    </style>
+</head>
+<body>
+    <div class="login-container">
+    
+        <h2>LOGIN TO GET WEATHER DETAILS</h2>
+
+        <form id="loginForm" onsubmit="storeLoginData(event)">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Login</button>
+                <!-- <button type="button" onclick="goToIndexPage()">SKIP</button> -->
+            </div>
+            <div class="form-group">
+                
+                <button type="button" onclick="goToIndexPage()">SKIP</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function storeLoginData(event) {
+            event.preventDefault(); // Prevents the form from submitting the traditional way
+
+            // Get values from the form
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // Store data in local storage
+            localStorage.setItem('username', username);
+            localStorage.setItem('password', password);
+
+            // Optional: Show an alert or redirect the user
+            alert('Login data stored locally.');
+
+            // Optional: Redirect to another page
+            window.location.href = 'first.html';
+        }
+
+        function goToIndexPage() {
+            window.location.href = 'FIRST.html'; // Redirects to indexx.html
+        }
+    </script>
+</body>
+</html>
